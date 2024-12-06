@@ -1,0 +1,262 @@
+﻿@* @model KartMessages.Models.KartMessage
+
+<form id="kartForm">
+    <div>
+        <label for="KartNumber">N°. KART:</label>
+        <select id="KartNumber" name="KartNumber" asp-for="KartNumber">
+            <option value=" "> </option>
+            <option value="K18">K18</option>
+            <option value="K19">K19</option>
+            <option value="K20">K20</option>
+            <option value="K18 E K19">K18 E K19</option>
+            <option value="K18 E K20">K18 E K20</option>
+            <option value="K19 E K20">K19 E K20</option>
+            <option value="K18, K19 E K20">K18, K19 E K20</option>
+        </select>
+    </div>
+    <div>
+        <label for="Action">Ação:</label>
+        <select id="Action" name="Action" asp-for="Action" onchange="toggleLapsDropdown(); mostrarCampo()">
+            <option value="BOX">BOX</option>
+            <option value="PASSA">PASSA</option>
+            <option value="EMPURRA">EMPURRA</option>
+            <option value="ACELERA">ACELERA</option>
+            <option value="ESPERA">ESPERA</option>
+            <option value="LIVRE">LIVRE</option>
+        </select>
+    </div>
+    <div id="lapsContainer">
+        <label for="Laps">Voltas:</label>
+        <select id="Laps" name="Laps" asp-for="Laps">
+            <option value="3 LAPS">3 LAPS</option>
+            <option value="2 LAPS">2 LAPS</option>
+            <option value="1 LAP">1 LAP</option>
+            <option value="AGORA">AGORA</option>
+        </select>
+    </div>
+    <div id="campoLivre" class="hidden">
+        <label for="inputLivre">Digite aqui:</label>
+        <input type="text" id="inputLivre" name="inputLivre">
+    </div>
+    <div class="buttons-container">
+        <button type="submit">Enviar</button>
+        <button type="button" onclick="clearMessage()">Limpar Mensagem</button>
+    </div>
+</form>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    #kartForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    label, select, input {
+        width: 200px;
+        margin: 5px 0;
+    }
+
+    .buttons-container {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px; /* Aumenta o espaço entre "Digite aqui" e os botões */
+    }
+
+        .buttons-container button {
+            width: auto;
+            padding: 5px 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+            .buttons-container button:hover {
+                background-color: #ddd;
+            }
+</style>
+
+<script>
+    let openedWindow;
+
+    document.getElementById('kartForm').onsubmit = function (event) {
+        event.preventDefault();
+        const kartNumber = document.getElementById('KartNumber').value;
+        const action = document.getElementById('Action').value *@
+
+@model KartMessages.Models.KartMessage
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto KartMessages</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif+Sans">
+    <style>
+        body {
+            font-family: 'Serif Sans', sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px; /* Espaçamento entre o cabeçalho e o número do kart */
+            color: white;
+        }
+
+        #kartForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label, select, input {
+            width: 200px;
+            margin: 5px 0;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px; /* Aumenta o espaço entre "Digite aqui" e os botões */
+        }
+
+            .buttons-container button {
+                width: auto;
+                padding: 5px 10px;
+                background-color: white;
+                color: black;
+                border: none;
+                cursor: pointer;
+            }
+
+                .buttons-container button:hover {
+                    background-color: #ddd;
+                }
+    </style>
+</head>
+<body>
+
+<h1 class="header">KartMessages</h1>
+<form id="kartForm">
+    <div>
+        <label for="KartNumber">N°. KART:</label>
+        <select id="KartNumber" name="KartNumber" asp-for="KartNumber">
+            <option value=" "> </option>
+            <option value="K18">K18</option>
+            <option value="K19">K19</option>
+            <option value="K20">K20</option>
+            <option value="K18 K19">K18 K19</option>
+            <option value="K18 K20">K18 K20</option>
+            <option value="K19 K20">K19 K20</option>
+            <option value="K18 K19 K20">K18 K19 K20</option>
+        </select>
+    </div>
+    <div>
+        <label for="Action">Ação:</label>
+        <select id="Action" name="Action" asp-for="Action" onchange="toggleLapsDropdown(); mostrarCampo()">
+            <option value="BOX">BOX</option>
+            <option value="PASSA">PASSA</option>
+            <option value="TROCA">TROCA</option>
+            <option value="EMPURRA">EMPURRA</option>
+            <option value="ACELERA">ACELERA</option>
+            <option value="ESPERA">ESPERA</option>
+            <option value="LIVRE">LIVRE</option>
+        </select>
+    </div>
+    <div id="lapsContainer">
+        <label for="Laps">Voltas:</label>
+        <select id="Laps" name="Laps" asp-for="Laps">
+            <option value="3 LAPS">3 LAPS</option>
+            <option value="2 LAPS">2 LAPS</option>
+            <option value="1 LAP">1 LAP</option>
+            <option value="AGORA">AGORA</option>
+        </select>
+    </div>
+    <div id="campoLivre" class="hidden">
+        <label for="inputLivre">Digite aqui:</label>
+        <input type="text" id="inputLivre" name="inputLivre">
+    </div>
+    <div class="buttons-container">
+        <button type="submit">Enviar</button>
+        <button type="button" onclick="clearMessage()">Limpar Mensagem</button>
+    </div>
+</form>
+
+</body>
+<script>
+    let openedWindow;
+
+    document.getElementById('kartForm').onsubmit = function (event) {
+        event.preventDefault();
+        const kartNumber = document.getElementById('KartNumber').value;
+        const action = document.getElementById('Action').value;
+        const laps = document.getElementById('Laps').value;
+        const inputLivre = document.getElementById('inputLivre').value;
+
+        let message = '';
+        if (action !== 'LIVRE') {
+            message += action + ' ';
+        }
+        if (action === 'BOX') {
+            message += laps;
+        } else if (action === 'LIVRE') {
+            message += inputLivre;
+        }
+
+        const url = `/Kart/DisplayMessage?KartNumber=${encodeURIComponent(kartNumber)}&Message=${encodeURIComponent(message.trim())}`;
+
+        if (!openedWindow || openedWindow.closed) {
+            openedWindow = window.open(url, '_blank');
+        } else {
+            openedWindow.location.href = url;
+        }
+    };
+
+    function clearMessage() {
+        if (!openedWindow || openedWindow.closed) {
+            openedWindow = window.open(`/Kart/DisplayMessage?clear=true`, '_blank');
+        } else {
+            openedWindow.location.href = `/Kart/DisplayMessage?clear=true`;
+        }
+    }
+
+    function toggleLapsDropdown() {
+        const action = document.getElementById('Action').value;
+        const lapsContainer = document.getElementById('lapsContainer');
+        if (action === 'BOX') {
+            lapsContainer.style.display = 'block';
+        } else {
+            lapsContainer.style.display = 'none';
+        }
+    }
+
+    function mostrarCampo() {
+        const action = document.getElementById('Action').value;
+        const campoLivre = document.getElementById('campoLivre');
+        const kartNumber = document.getElementById('KartNumber');
+
+        if (action === 'LIVRE') {
+            campoLivre.classList.remove('hidden');
+            kartNumber.classList.remove('hidden');
+        } else {
+            campoLivre.classList.add('hidden');
+            kartNumber.classList.add('hidden');
+        }
+    }
+
+    window.onload = function() {
+        toggleLapsDropdown(); // Ensure the correct state on page load
+        mostrarCampo(); // Ensure the correct state on page load
+    };
+</script>

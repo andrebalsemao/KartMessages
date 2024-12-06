@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KartMessages", "KartMessages.csproj", "{13AAFF75-FC3A-4663-BC00-9441FF715A86}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "KartMessagesSetup", "KartMessagesSetup\KartMessagesSetup.vdproj", "{D0116C2E-2416-49F9-BE0D-2D7920B95391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13AAFF75-FC3A-4663-BC00-9441FF715A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AAFF75-FC3A-4663-BC00-9441FF715A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AAFF75-FC3A-4663-BC00-9441FF715A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AAFF75-FC3A-4663-BC00-9441FF715A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0116C2E-2416-49F9-BE0D-2D7920B95391}.Debug|Any CPU.ActiveCfg = Debug
+		{D0116C2E-2416-49F9-BE0D-2D7920B95391}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE274359-478B-4CBC-8256-E74F53E1F996}
+	EndGlobalSection
+EndGlobal

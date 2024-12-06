@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto KartMessages</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #messageContainer {
+            text-align: center;
+            margin-top: -60px;
+            margin-left: -210px;
+            margin-right: -210px;
+            margin-bottom: -240px;
+            font-size: 1580%;
+            color: yellow;
+            text-shadow: -1px -5px 0 #ff0000, 1px -5px 0 #ff0000, -1px 5px 0 #ff0000, 1px 1px 0 #ff0000;
+            line-height: 1.35;
+            letter-spacing: 1.5px;
+        }
+
+        #messageDisplay {
+            font-size: 113%;
+            text-shadow: -1px -5px 0 #ff0000, 1px -5px 0 #ff0000, -1px 5px 0 #ff0000, 1px 1px 0 #ff0000;
+        }
+        
+        
+        .blink {
+            animation: blink 1s infinite; /* Define a animação de piscar */
+        }
+
+        #placeholderImage {
+            text-align: center;
+            margin-top: 50px;
+            width:40VW;
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        @@keyframes blink {
+            0%
+
+        {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="messageContainer">
+        <div id="headerDisplay" class="hidden">
+            <div>
+                <p id="kartNumberDisplay">@Model.KartNumber</p>
+            </div>
+        </div>
+        <div id="messageDisplay" class="blink">
+            <p id="actionDisplay" class="hidden"></p>
+            <p id="lapsDisplay" class="hidden"></p>
+            <img id="placeholderImage" class="hidden" src="/Images/LOGO03.png" alt="Placeholder Image" style="max-width: 100%;" />
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const headerDisplay = document.getElementById('headerDisplay');
+            const kartNumberDisplay = document.getElementById('kartNumberDisplay');
+            const actionDisplay = document.getElementById('actionDisplay');
+            const lapsDisplay = document.getElementById('lapsDisplay');
+            const placeholderImage = document.getElementById('placeholderImage');
+            const messageDisplay = document.getElementById('messageDisplay');
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const kartNumber = urlParams.get('KartNumber');
+            const message = urlParams.get('Message');
+            const clear = urlParams.get('clear');
+
+            console.log(`KartNumber: ${kartNumber}, Message: ${message}, Clear: ${clear}`);
+
+            if (clear) {
+                headerDisplay.classList.add('hidden');
+                actionDisplay.classList.add('hidden');
+                lapsDisplay.classList.add('hidden');
+                placeholderImage.classList.remove('hidden');
+                messageDisplay.classList.remove('blink'); // Remover a animação de piscar
+            } else {
+                if (kartNumber) {
+                    headerDisplay.classList.remove('hidden');
+                    kartNumberDisplay.textContent = kartNumber;
+                } else {
+                    headerDisplay.classList.add('hidden');
+                }
+
+                const messageParts = message.split(' ');
+                const action = messageParts[0];
+                const laps = messageParts.slice(1).join(' ');
+
+                actionDisplay.textContent = action;
+                actionDisplay.classList.remove('hidden');
+
+                if (laps) {
+                    lapsDisplay.textContent = laps;
+                    lapsDisplay.classList.remove('hidden');
+                } else {
+                    lapsDisplay.classList.add('hidden');
+                }
+
+                placeholderImage.classList.add('hidden');
+                messageDisplay.classList.add('blink'); // Aplicar a animação de piscar
+            }
+
+            console.log("Display message updated");
+        };
+    </script>
+</body>
+</html>
+
